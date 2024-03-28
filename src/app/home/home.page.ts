@@ -10,7 +10,6 @@ import { BiometryType, NativeBiometric } from 'capacitor-native-biometric';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent,IonButton,IonToast],
 })
 export class HomePage {
-  server = 'www.faceid.technyks.com';
   isToast = false;
   toastMessage!: string;  constructor() {}
 
@@ -34,25 +33,12 @@ export class HomePage {
 
       if (!verified) return;
 
-      this.getCredentials();
     } catch (e) {
       this.openToast('Biometric is not supported in these device,Please choose another one and try again');
       console.log(e);
     }
   }
 
-
-  async getCredentials() {
-    try {
-      const credentials = await NativeBiometric.getCredentials({
-        server: this.server,
-      });
-      console.log(credentials);
-      this.openToast(`Authorised! Credentials: ${credentials.username}, ${credentials.password}`);
-    } catch (e) {
-      console.log(e);
-    }
-  }
 
   // deleteCredentials() {
   //   NativeBiometric.deleteCredentials({
