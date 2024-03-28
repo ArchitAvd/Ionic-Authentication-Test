@@ -1,0 +1,7 @@
+{
+  "name": "Face-Authentication",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

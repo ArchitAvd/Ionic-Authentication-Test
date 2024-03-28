@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Face Authentication
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <!-- <div class="logo-container">
+      <img src="assets/icon/logo.png" alt="App Logo">
+    </div>
+    <div class="camera-preview-container">
+      <img src="assets/img/face_placeholder.png" alt="Face Preview">
+    </div> -->
+    <div class="button-container">
+      <ion-button expand="block" (click)="performBiometricVerification()">Authenticate using Face Id / FingerPrint</ion-button>
+    </div>
+  </div>
+
+  <ion-toast 
+  [isOpen]="isToast" 
+  [message]="toastMessage" 
+  [duration]="3000"
+  (didDismiss)="isToast = false">
+</ion-toast>
+</ion-content>
