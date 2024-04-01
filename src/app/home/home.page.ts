@@ -7,17 +7,17 @@ import { BiometryType, NativeBiometric } from 'capacitor-native-biometric';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent,IonButton,IonToast],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonToast],
 })
 export class HomePage {
   isToast = false;
-  toastMessage!: string;  constructor() {}
+  toastMessage!: string; constructor() { }
 
   async performBiometricVerification() {
     try {
       const result = await NativeBiometric.isAvailable({ useFallback: true });
       if (!result.isAvailable) return;
-      
+
       const isFaceID = result.biometryType == BiometryType.FACE_ID;
       console.log(isFaceID);
 
@@ -38,15 +38,6 @@ export class HomePage {
       console.log(e);
     }
   }
-
-
-  // deleteCredentials() {
-  //   NativeBiometric.deleteCredentials({
-  //     server: this.server,
-  //   }).then(() => {
-  //     this.openToast('Credentials deleted');
-  //   });
-  // }
 
   openToast(msg: string) {
     this.isToast = true;
